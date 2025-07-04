@@ -1,11 +1,10 @@
-import mongoose from 'mongoose';
-import config from './app/config';
 import app from './app';
+import config from './app/config';
+import connectDB from './app/config/db';
 
 async function main() {
   try {
-    await mongoose.connect(config.database_url as string);
-    console.log('AssureSafe Database Connected Successfully!');
+    await connectDB();
 
     //   start the express application
     app.listen(config.port, () => {
