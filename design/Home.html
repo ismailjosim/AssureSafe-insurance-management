@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeSecure - Secure Your Tomorrow Today</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for hero section background */
+        .hero-section-bg {
+            background-image: url("https://placehold.co/1200x500/ADD8E6/000000?text=Secure+Your+Tomorrow+Today");
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="navbar bg-base-200 shadow-md rounded-b-lg p-4">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-2xl font-bold text-blue-600">
+                <img src="https://placehold.co/40x40/0000FF/FFFFFF?text=Logo" alt="Company Logo"
+                    class="rounded-full mr-2" />
+                LifeSecure
+            </a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li><a class="font-medium hover:text-blue-600">Home</a></li>
+                <li><a class="font-medium hover:text-blue-600">All Policies</a></li>
+                <li><a class="font-medium hover:text-blue-600">Blog/Articles</a></li>
+                <li><a class="font-medium hover:text-blue-600">Dashboard</a></li>
+                <li><a class="font-medium hover:text-blue-600">Login/Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero min-h-[500px] hero-section-bg rounded-lg shadow-lg mx-auto mt-8 relative overflow-hidden">
+        <div class="hero-overlay bg-opacity-60 bg-gradient-to-r from-blue-800 to-transparent rounded-lg"></div>
+        <div class="hero-content text-center text-neutral-content p-8">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold text-white leading-tight">Secure Your Tomorrow Today</h1>
+                <p class="mb-5 text-lg text-gray-200">
+                    Explore personalized policies, get instant quotes, and manage your insurance digitally with ease.
+                </p>
+                <button class="btn btn-primary btn-lg shadow-xl hover:scale-105 transition-transform duration-300">Get a
+                    Free Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Policies Section -->
+    <section class="container mx-auto p-8 mt-12">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-900">Our Popular Policies</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Policy Card 1 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-48">
+                    <img src="https://placehold.co/400x200/4CAF50/FFFFFF?text=Policy+1" alt="Policy 1"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2">Policy Title 1</h3>
+                    <p class="text-gray-600 mb-4">Coverage: $500,000 | Term: 20 Years</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Policy Card 2 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-48">
+                    <img src="https://placehold.co/400x200/4CAF50/FFFFFF?text=Policy+2" alt="Policy 2"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2">Policy Title 2</h3>
+                    <p class="text-gray-600 mb-4">Coverage: $500,000 | Term: 20 Years</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Policy Card 3 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-48">
+                    <img src="https://placehold.co/400x200/4CAF50/FFFFFF?text=Policy+3" alt="Policy 3"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2">Policy Title 3</h3>
+                    <p class="text-gray-600 mb-4">Coverage: $500,000 | Term: 20 Years</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Policy Card 4 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-48">
+                    <img src="https://placehold.co/400x200/4CAF50/FFFFFF?text=Policy+4" alt="Policy 4"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2">Policy Title 4</h3>
+                    <p class="text-gray-600 mb-4">Coverage: $500,000 | Term: 20 Years</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Policy Card 5 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-48">
+                    <img src="https://placehold.co/400x200/4CAF50/FFFFFF?text=Policy+5" alt="Policy 5"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2">Policy Title 5</h3>
+                    <p class="text-gray-600 mb-4">Coverage: $500,000 | Term: 20 Years</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Policy Card 6 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-48">
+                    <img src="https://placehold.co/400x200/4CAF50/FFFFFF?text=Policy+6" alt="Policy 6"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2">Policy Title 6</h3>
+                    <p class="text-gray-600 mb-4">Coverage: $500,000 | Term: 20 Years</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-primary">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="bg-blue-50 py-16 mt-12 rounded-lg shadow-inner">
+        <div class="container mx-auto p-8">
+            <h2 class="text-4xl font-bold text-center mb-10 text-gray-900">What Our Customers Say</h2>
+            <div class="carousel w-full rounded-box shadow-lg">
+                <!-- Review Slide 1 -->
+                <div id="review-slide-1" class="carousel-item w-full flex justify-center p-4">
+                    <div class="card w-full max-w-lg bg-white shadow-xl p-8 text-center">
+                        <div class="avatar mb-4">
+                            <div class="w-24 rounded-full mx-auto">
+                                <img src="https://placehold.co/100x100/FFD700/000000?text=User1" alt="User 1" />
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Customer Name 1</h3>
+                        <div class="rating rating-md mb-4 justify-center">
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" disabled
+                                checked />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-1" class="mask mask-star-2 bg-orange-400" disabled />
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "LifeSecure made getting insurance so easy! Their team was incredibly helpful and
+                            transparent throughout the process. Highly recommend!"
+                        </p>
+                    </div>
+                </div>
+                <!-- Review Slide 2 -->
+                <div id="review-slide-2" class="carousel-item w-full flex justify-center p-4">
+                    <div class="card w-full max-w-lg bg-white shadow-xl p-8 text-center">
+                        <div class="avatar mb-4">
+                            <div class="w-24 rounded-full mx-auto">
+                                <img src="https://placehold.co/100x100/FFD700/000000?text=User2" alt="User 2" />
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Customer Name 2</h3>
+                        <div class="rating rating-md mb-4 justify-center">
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" disabled
+                                checked />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" disabled />
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Excellent service and clear policy options. I found exactly what I needed without any
+                            hassle. A truly modern insurance experience."
+                        </p>
+                    </div>
+                </div>
+                <!-- Review Slide 3 -->
+                <div id="review-slide-3" class="carousel-item w-full flex justify-center p-4">
+                    <div class="card w-full max-w-lg bg-white shadow-xl p-8 text-center">
+                        <div class="avatar mb-4">
+                            <div class="w-24 rounded-full mx-auto">
+                                <img src="https://placehold.co/100x100/FFD700/000000?text=User3" alt="User 3" />
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Customer Name 3</h3>
+                        <div class="rating rating-md mb-4 justify-center">
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" disabled
+                                checked />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" disabled />
+                            <input type="radio" name="rating-3" class="mask mask-star-2 bg-orange-400" disabled />
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "I appreciate the transparency and the easy-to-use platform. Managing my policy has never
+                            been this straightforward. Highly recommended for everyone."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center w-full py-2 gap-2 mt-4">
+                <a href="#review-slide-1" class="btn btn-xs">1</a>
+                <a href="#review-slide-2" class="btn btn-xs">2</a>
+                <a href="#review-slide-3" class="btn btn-xs">3</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Blog/Articles Section -->
+    <section class="container mx-auto p-8 mt-12">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-900">Latest from Our Blog</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Blog Card 1 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-40">
+                    <img src="https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+1" alt="Blog 1"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-xl text-gray-800 mb-2">Blog Title 1</h3>
+                    <p class="text-gray-600 text-sm mb-4">Short summary of the blog post, enticing the reader to click
+                        and learn more.</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-secondary">Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Card 2 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-40">
+                    <img src="https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+2" alt="Blog 2"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-xl text-gray-800 mb-2">Blog Title 2</h3>
+                    <p class="text-gray-600 text-sm mb-4">Short summary of the blog post, enticing the reader to click
+                        and learn more.</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-secondary">Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Card 3 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-40">
+                    <img src="https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+3" alt="Blog 3"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-xl text-gray-800 mb-2">Blog Title 3</h3>
+                    <p class="text-gray-600 text-sm mb-4">Short summary of the blog post, enticing the reader to click
+                        and learn more.</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-secondary">Read More</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Card 4 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-40">
+                    <img src="https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+4" alt="Blog 4"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6">
+                    <h3 class="card-title text-xl text-gray-800 mb-2">Blog Title 4</h3>
+                    <p class="text-gray-600 text-sm mb-4">Short summary of the blog post, enticing the reader to click
+                        and learn more.</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-sm btn-outline btn-secondary">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-10">
+            <button class="btn btn-lg btn-accent shadow-lg hover:scale-105 transition-transform duration-300">View All
+                Blog/Articles</button>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-400 py-16 mt-12 rounded-lg shadow-xl">
+        <div class="container mx-auto p-8 text-center text-white">
+            <h2 class="text-4xl font-bold mb-6">Stay Updated with Our Newsletter</h2>
+            <p class="text-lg mb-8">Get the latest insurance tips, policy updates, and exclusive offers directly to your
+                inbox.</p>
+            <form class="flex flex-col md:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
+                <input type="text" placeholder="Your Name"
+                    class="input input-bordered w-full md:w-auto flex-grow rounded-md p-3 text-gray-800" />
+                <input type="email" placeholder="Your Email"
+                    class="input input-bordered w-full md:w-auto flex-grow rounded-md p-3 text-gray-800" />
+                <button type="submit"
+                    class="btn btn-warning btn-lg shadow-lg hover:scale-105 transition-transform duration-300">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Meet Our Agents Section -->
+    <section class="container mx-auto p-8 mt-12 mb-12">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-900">Meet Our Expert Agents</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Agent Card 1 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-60">
+                    <img src="https://placehold.co/400x300/FF6347/FFFFFF?text=Agent+1" alt="Agent 1"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6 text-center">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2 justify-center">Agent Name 1</h3>
+                    <p class="text-gray-600 mb-2">Experience: 10 Years</p>
+                    <p class="text-gray-700 font-medium">Specialties: Term Life, Senior Plans</p>
+                    <div class="card-actions justify-center mt-4">
+                        <button class="btn btn-sm btn-outline btn-info">Contact Agent</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Agent Card 2 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-60">
+                    <img src="https://placehold.co/400x300/FF6347/FFFFFF?text=Agent+2" alt="Agent 2"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6 text-center">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2 justify-center">Agent Name 2</h3>
+                    <p class="text-gray-600 mb-2">Experience: 11 Years</p>
+                    <p class="text-gray-700 font-medium">Specialties: Health Insurance, Family Plans</p>
+                    <div class="card-actions justify-center mt-4">
+                        <button class="btn btn-sm btn-outline btn-info">Contact Agent</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Agent Card 3 -->
+            <div
+                class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                <figure class="h-60">
+                    <img src="https://placehold.co/400x300/FF6347/FFFFFF?text=Agent+3" alt="Agent 3"
+                        class="w-full h-full object-cover" />
+                </figure>
+                <div class="card-body p-6 text-center">
+                    <h3 class="card-title text-2xl text-gray-800 mb-2 justify-center">Agent Name 3</h3>
+                    <p class="text-gray-600 mb-2">Experience: 12 Years</p>
+                    <p class="text-gray-700 font-medium">Specialties: Investment Linked, Retirement</p>
+                    <div class="card-actions justify-center mt-4">
+                        <button class="btn btn-sm btn-outline btn-info">Contact Agent</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content rounded-t-lg shadow-inner">
+        <aside>
+            <img src="https://placehold.co/60x60/0000FF/FFFFFF?text=Logo" alt="Company Logo"
+                class="rounded-full mb-2" />
+            <p class="font-bold text-lg">
+                LifeSecure Insurance Ltd. <br />Providing reliable insurance since 2023
+            </p>
+            <p>Copyright © 2023 - All right reserved</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 1.66 1.14 3.214 2.911 3.569-.269.07-.539.109-.817.109-.202 0-.39-.019-.58-.059.465 1.448 1.838 2.503 3.451 2.535-1.933 1.51-4.34 2.42-6.972 2.42-4.507 0-8.72-2.924-11.39-7.142 1.44-.929 2.964-1.62 4.594-1.914z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.27 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.848.264-4.04 2.679-4.045 12.351 0 10.158.205 12.083 4.045 12.351 3.6.245 11.626.246 15.23 0 3.847-.264 4.04-2.679 4.045-12.351 0-10.158-.205-12.083-4.045-12.351zm-5.615 11.816v-6l-4 3.003z">
+                        </path>
+                    </svg></a>
+            </div>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

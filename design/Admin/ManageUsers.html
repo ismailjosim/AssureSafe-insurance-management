@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Manage Users - LifeSecure</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom styles for sidebar on larger screens */
+        @media (min-width: 1024px) {
+
+            /* lg breakpoint */
+            .dashboard-layout {
+                display: grid;
+                grid-template-columns: 280px 1fr;
+                /* Fixed sidebar width, rest for content */
+                min-height: calc(100vh - 96px);
+                /* Adjust based on navbar/footer height */
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-800 flex flex-col">
+
+    <!-- Navbar (Admin specific - simplified for sidebar navigation) -->
+    <nav class="navbar bg-base-200 shadow-md rounded-b-lg p-4">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-2xl font-bold text-blue-600">
+                <img src="https://placehold.co/40x40/0000FF/FFFFFF?text=Logo" alt="Company Logo"
+                    class="rounded-full mr-2" />
+                LifeSecure <span class="badge badge-warning ml-2">Admin</span>
+            </a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li><a class="font-medium hover:text-blue-600">Profile</a></li>
+                <li><a class="font-medium hover:text-blue-600">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Layout -->
+    <div class="flex-grow dashboard-layout lg:flex-row">
+        <!-- Sidebar for Dashboard Navigation -->
+        <aside class="w-full lg:w-72 bg-base-100 shadow-lg p-6 lg:rounded-tr-lg lg:rounded-br-lg lg:mr-8 mb-8 lg:mb-0">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Admin Panel</h2>
+            <ul class="menu p-0 space-y-2">
+                <li><a class="font-medium text-lg hover:text-blue-600 rounded-md py-2 px-4 flex items-center"><i
+                            class="fas fa-tachometer-alt mr-3"></i> Dashboard Overview</a></li>
+                <li class="menu-title text-gray-500 text-sm uppercase mt-4 mb-2">Manage</li>
+                <li><a class="font-medium text-lg hover:text-blue-600 rounded-md py-2 px-4 flex items-center"><i
+                            class="fas fa-file-alt mr-3"></i> Applications</a></li>
+                <li><a
+                        class="font-medium text-lg hover:text-blue-600 rounded-md py-2 px-4 flex items-center bg-blue-100 text-blue-700"><i
+                            class="fas fa-users mr-3"></i> Users</a></li>
+                <li><a class="font-medium text-lg hover:text-blue-600 rounded-md py-2 px-4 flex items-center"><i
+                            class="fas fa-shield-alt mr-3"></i> Policies</a></li>
+                <li><a class="font-medium text-lg hover:text-blue-600 rounded-md py-2 px-4 flex items-center"><i
+                            class="fas fa-exchange-alt mr-3"></i> Transactions</a></li>
+                <li><a class="font-medium text-lg hover:text-blue-600 rounded-md py-2 px-4 flex items-center"><i
+                            class="fas fa-user-tie mr-3"></i> Agents</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-grow p-8">
+            <h1 class="text-4xl font-bold text-center mb-10 text-gray-900">Manage Users</h1>
+
+            <div class="bg-white shadow-xl rounded-lg p-6">
+                <!-- Filter Section (Optional as per PDF) -->
+                <div class="mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Filter by Role:</span>
+                        </label>
+                        <select class="select select-bordered w-full rounded-md shadow-sm">
+                            <option disabled selected>All Roles</option>
+                            <option>Customer</option>
+                            <option>Agent</option>
+                            <option>Admin</option>
+                        </select>
+                    </div>
+                    <!-- Add other filters or search bar if needed -->
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <!-- head -->
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Registration Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- User Row 1 (Customer) -->
+                            <tr>
+                                <td>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="avatar">
+                                            <div class="mask mask-squircle w-12 h-12">
+                                                <img src="https://placehold.co/50x50/A0BBE2/000000?text=JD"
+                                                    alt="User Avatar" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold">John Doe</div>
+                                            <div class="text-sm opacity-50">ID: USER001</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>john.doe@example.com</td>
+                                <td><span class="badge badge-info">Customer</span></td>
+                                <td>2023-10-15</td>
+                                <td>
+                                    <div class="flex flex-col sm:flex-row gap-2">
+                                        <button class="btn btn-sm btn-success">Promote to Agent</button>
+                                        <button class="btn btn-sm btn-error">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- User Row 2 (Agent) -->
+                            <tr>
+                                <td>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="avatar">
+                                            <div class="mask mask-squircle w-12 h-12">
+                                                <img src="https://placehold.co/50x50/B2EBF2/000000?text=JS"
+                                                    alt="User Avatar" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold">Jane Smith</div>
+                                            <div class="text-sm opacity-50">ID: USER002</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>jane.smith@example.com</td>
+                                <td><span class="badge badge-warning">Agent</span></td>
+                                <td>2023-11-20</td>
+                                <td>
+                                    <div class="flex flex-col sm:flex-row gap-2">
+                                        <button class="btn btn-sm btn-warning">Demote to Customer</button>
+                                        <button class="btn btn-sm btn-error">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- User Row 3 (Admin) -->
+                            <tr>
+                                <td>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="avatar">
+                                            <div class="mask mask-squircle w-12 h-12">
+                                                <img src="https://placehold.co/50x50/FFC107/000000?text=AL"
+                                                    alt="User Avatar" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold">Alice Lee</div>
+                                            <div class="text-sm opacity-50">ID: USER003</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>alice.lee@example.com</td>
+                                <td><span class="badge badge-error">Admin</span></td>
+                                <td>2023-09-01</td>
+                                <td>
+                                    <div class="flex flex-col sm:flex-row gap-2">
+                                        <!-- Admin cannot demote/delete themselves or other Admins easily -->
+                                        <button class="btn btn-sm btn-disabled" disabled>Demote</button>
+                                        <button class="btn btn-sm btn-disabled" disabled>Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- More user rows can be added here -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination (if needed for large user lists) -->
+                <div class="flex justify-center mt-8">
+                    <div class="join">
+                        <button class="join-item btn btn-md">«</button>
+                        <button class="join-item btn btn-md">Page 1</button>
+                        <button class="join-item btn btn-md">2</button>
+                        <button class="join-item btn btn-md">3</button>
+                        <button class="join-item btn btn-md">»</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content rounded-t-lg shadow-inner mt-12">
+        <aside>
+            <img src="https://placehold.co/60x60/0000FF/FFFFFF?text=Logo" alt="Company Logo"
+                class="rounded-full mb-2" />
+            <p class="font-bold text-lg">
+                LifeSecure Insurance Ltd. <br />Providing reliable insurance since 2023
+            </p>
+            <p>Copyright © 2023 - All right reserved</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 1.66 1.14 3.214 2.911 3.569-.269.07-.539.109-.817.109-.202 0-.39-.019-.58-.059.465 1.448 1.838 2.503 3.451 2.535-1.933 1.51-4.34 2.42-6.972 2.42-4.507 0-8.72-2.924-11.39-7.142 1.44-.929 2.964-1.62 4.594-1.914z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.27 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.848.264-4.04 2.679-4.045 12.351 0 10.158.205 12.083 4.045 12.351 3.6.245 11.626.246 15.23 0 3.847-.264 4.04-2.679 4.045-12.351 0-10.158-.205-12.083-4.045-12.351zm-5.615 11.816v-6l-4 3.003z">
+                        </path>
+                    </svg></a>
+            </div>
+        </nav>
+    </footer>
+
+</body>
+
+</html>

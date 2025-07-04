@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Blog & Articles - LifeSecure</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.css" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-800 flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="navbar bg-base-200 shadow-md rounded-b-lg p-4">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-2xl font-bold text-blue-600">
+                <img src="https://placehold.co/40x40/0000FF/FFFFFF?text=Logo" alt="Company Logo"
+                    class="rounded-full mr-2" />
+                LifeSecure
+            </a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li><a class="font-medium hover:text-blue-600">Home</a></li>
+                <li><a class="font-medium hover:text-blue-600">All Policies</a></li>
+                <li><a class="font-medium hover:text-blue-600">Blog/Articles</a></li>
+                <li><a class="font-medium hover:text-blue-600">Dashboard</a></li>
+                <li><a class="font-medium hover:text-blue-600">Login/Register</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-8 mt-8">
+        <h1 class="text-4xl font-bold text-center mb-10 text-gray-900">Our Latest Blog Posts & Articles</h1>
+
+        <!-- Blog Cards Grid -->
+        <div id="blog-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog cards will be dynamically loaded here by JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination-container" class="flex justify-center mt-12">
+            <!-- Pagination buttons will be dynamically loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Blog Details Modal (DaisyUI Modal) -->
+    <dialog id="blog_details_modal" class="modal">
+        <div class="modal-box w-11/12 max-w-4xl">
+            <h3 id="modal-blog-title" class="font-bold text-3xl mb-4"></h3>
+            <div class="flex items-center space-x-4 mb-6">
+                <div class="avatar">
+                    <div class="w-10 h-10 rounded-full">
+                        <img id="modal-author-image" src="" alt="Author Image" />
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span id="modal-author-name" class="font-semibold text-gray-800"></span>
+                    <span id="modal-published-date" class="text-sm text-gray-500"></span>
+                </div>
+                <div class="badge badge-outline badge-info ml-auto">
+                    <i class="fas fa-eye mr-1"></i> <span id="modal-total-visits"></span> Visits
+                </div>
+            </div>
+            <figure class="mb-6 rounded-lg overflow-hidden">
+                <img id="modal-blog-image" src="" alt="Blog Image" class="w-full h-auto object-cover" />
+            </figure>
+            <div id="modal-blog-full-details" class="prose max-w-none text-gray-800 leading-relaxed mb-8">
+                <!-- Full blog content will be loaded here -->
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-300 text-base-content rounded-t-lg shadow-inner mt-12">
+        <aside>
+            <img src="https://placehold.co/60x60/0000FF/FFFFFF?text=Logo" alt="Company Logo"
+                class="rounded-full mb-2" />
+            <p class="font-bold text-lg">
+                LifeSecure Insurance Ltd. <br />Providing reliable insurance since 2023
+            </p>
+            <p>Copyright © 2023 - All right reserved</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 1.66 1.14 3.214 2.911 3.569-.269.07-.539.109-.817.109-.202 0-.39-.019-.58-.059.465 1.448 1.838 2.503 3.451 2.535-1.933 1.51-4.34 2.42-6.972 2.42-4.507 0-8.72-2.924-11.39-7.142 1.44-.929 2.964-1.62 4.594-1.914z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.27 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg></a>
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.848.264-4.04 2.679-4.045 12.351 0 10.158.205 12.083 4.045 12.351 3.6.245 11.626.246 15.23 0 3.847-.264 4.04-2.679 4.045-12.351 0-10.158-.205-12.083-4.045-12.351zm-5.615 11.816v-6l-4 3.003z">
+                        </path>
+                    </svg></a>
+            </div>
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const blogCardsContainer = document.getElementById('blog-cards-container');
+            const paginationContainer = document.getElementById('pagination-container');
+            const blogDetailsModal = document.getElementById('blog_details_modal');
+            const modalBlogTitle = document.getElementById('modal-blog-title');
+            const modalAuthorImage = document.getElementById('modal-author-image');
+            const modalAuthorName = document.getElementById('modal-author-name');
+            const modalPublishedDate = document.getElementById('modal-published-date');
+            const modalTotalVisits = document.getElementById('modal-total-visits');
+            const modalBlogImage = document.getElementById('modal-blog-image');
+            const modalBlogFullDetails = document.getElementById('modal-blog-full-details');
+
+            let currentPage = 1;
+            const blogsPerPage = 6;
+            let allBlogs = []; // This will store all blogs fetched from the backend (mocked)
+
+            // Mock Blog Data with full details and visit counts
+            const mockBlogs = [
+                {
+                    id: 1,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+1",
+                    title: "Understanding Term Life Insurance",
+                    shortDetails: "A comprehensive guide to term life insurance, its benefits, and how it can secure your family's future.",
+                    author: "John Doe",
+                    authorImage: "https://placehold.co/50x50/ADD8E6/000000?text=JD",
+                    publishedDate: "July 1, 2024",
+                    totalVisits: 125,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Term life insurance is one of the most straightforward and popular types of life insurance. It provides coverage for a specific period, or "term," and pays out a death benefit to your beneficiaries if you pass away during that term. Unlike permanent life insurance, term life policies do not accumulate cash value, which often makes them a more affordable option for those looking for substantial coverage for a set period.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Why Choose Term Life Insurance?</h2>
+                        <p class="mb-4">
+                            The primary benefit of term life insurance is its affordability. Because it only covers you for a specific period and does not build cash value, premiums are typically much lower than those for whole life or universal life policies. This makes it an excellent choice for individuals and families who need significant coverage during their peak earning years or while they have major financial responsibilities, such as a mortgage or young children.
+                        </p>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li><strong>Affordability:</strong> Lower premiums compared to permanent life insurance.</li>
+                            <li><strong>Simplicity:</strong> Easy to understand and straightforward coverage.</li>
+                            <li><strong>Flexibility:</strong> Choose a term length that aligns with your financial obligations.</li>
+                            <li><strong>High Coverage:</strong> Obtain a large death benefit for a relatively low cost.</li>
+                        </ul>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Key Features to Consider</h2>
+                        <p class="mb-4">
+                            When selecting a term life insurance policy, there are several key features to keep in mind:
+                        </p>
+                        <ol class="list-decimal list-inside mb-4 space-y-2">
+                            <li>**Term Length:** Common terms include 10, 15, 20, or 30 years. Choose a term that matches the period you anticipate needing coverage most.</li>
+                            <li>**Coverage Amount:** Determine how much coverage your beneficiaries would need to maintain their lifestyle, cover debts, and achieve future financial goals.</li>
+                            <li>**Convertibility:** Some term policies offer the option to convert to a permanent life insurance policy later without a new medical exam.</li>
+                            <li>**Renewability:** At the end of the term, you may have the option to renew the policy, though premiums will likely increase significantly due to your older age.</li>
+                        </ol>
+                        <p class="mb-4">
+                            Understanding these aspects will help you make an informed decision and choose a term life insurance policy that best suits your needs. For more personalized advice, consider contacting one of our expert agents.
+                        </p>
+                    `
+                },
+                {
+                    id: 2,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+2",
+                    title: "The Importance of Health Insurance",
+                    shortDetails: "Discover why health insurance is a crucial investment for unexpected medical emergencies and overall well-being.",
+                    author: "Jane Smith",
+                    authorImage: "https://placehold.co/50x50/B2EBF2/000000?text=JS",
+                    publishedDate: "June 25, 2024",
+                    totalVisits: 98,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Health insurance is a vital safety net in today's unpredictable world. It provides financial coverage for medical expenses, including doctor visits, hospital stays, prescription drugs, and preventive care. Without adequate health insurance, a single serious illness or accident could lead to devastating financial burdens.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Benefits of Health Insurance</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Financial Protection:** Shields you from high medical costs.</li>
+                            <li>**Access to Care:** Ensures you can afford necessary treatments and services.</li>
+                            <li>**Preventive Care:** Covers screenings and vaccinations to keep you healthy.</li>
+                            <li>**Peace of Mind:** Reduces stress about potential health crises.</li>
+                        </ul>
+                        <p class="mb-4">
+                            Investing in health insurance is investing in your future and well-being. It's not just about covering emergencies, but also about promoting a healthier lifestyle through accessible preventive care.
+                        </p>
+                    `
+                },
+                {
+                    id: 3,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+3",
+                    title: "Planning for Retirement: Insurance Strategies",
+                    shortDetails: "Learn how different insurance policies can play a vital role in securing your financial future during retirement.",
+                    author: "Alex Johnson",
+                    authorImage: "https://placehold.co/50x50/FFC107/000000?text=AJ",
+                    publishedDate: "June 18, 2024",
+                    totalVisits: 72,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Retirement planning is a marathon, not a sprint. While investments and savings are crucial, insurance plays an equally vital role in safeguarding your retirement nest egg from unforeseen events.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Key Insurance Policies for Retirement</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Long-Term Care Insurance:** Covers costs for nursing homes, assisted living, or in-home care if you can no longer perform daily activities.</li>
+                            <li>**Annuities:** Provide a steady stream of income during retirement, mitigating the risk of outliving your savings.</li>
+                            <li>**Life Insurance (Permanent):** Can be used for estate planning, leaving a legacy, or even as a source of cash value in retirement.</li>
+                        </ul>
+                        <p class="mb-4">
+                            By incorporating these insurance strategies into your retirement plan, you can build a more secure and predictable financial future.
+                        </p>
+                    `
+                },
+                {
+                    id: 4,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+4",
+                    title: "Critical Illness Coverage: What You Need to Know",
+                    shortDetails: "Protection against major illnesses, providing financial support during tough times.",
+                    author: "Sarah Lee",
+                    authorImage: "https://placehold.co/50x50/DDA0DD/000000?text=SL",
+                    publishedDate: "June 10, 2024",
+                    totalVisits: 150,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Critical illness insurance provides a lump-sum payment if you're diagnosed with a covered critical illness, such as cancer, heart attack, or stroke. This money can be used for anything you need, from medical treatments and recovery costs to mortgage payments or living expenses, giving you financial flexibility during a challenging time.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Benefits of Critical Illness Insurance</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Financial Freedom:** Use the payout as you see fit.</li>
+                            <li>**Focus on Recovery:** Reduces financial stress, allowing you to focus on getting better.</li>
+                            <li>**Covers Gaps:** Can supplement your health insurance by covering non-medical expenses.</li>
+                        </ul>
+                        <p class="mb-4">
+                            Consider critical illness insurance as an essential part of your financial protection plan, offering an extra layer of security when you need it most.
+                        </p>
+                    `
+                },
+                {
+                    id: 5,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+5",
+                    title: "Navigating Insurance Claims: A Step-by-Step Guide",
+                    shortDetails: "A practical guide to understanding and navigating the insurance claims process with ease.",
+                    author: "David Chen",
+                    authorImage: "https://placehold.co/50x50/B0E0E6/000000?text=DC",
+                    publishedDate: "June 5, 2024",
+                    totalVisits: 88,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Filing an insurance claim can seem daunting, but understanding the process can make it much smoother. This guide breaks down the typical steps involved in making an insurance claim.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Steps to File a Claim</h2>
+                        <ol class="list-decimal list-inside mb-4 space-y-2">
+                            <li>**Notify Your Insurer:** Contact your insurance company as soon as possible after the event.</li>
+                            <li>**Gather Documentation:** Collect all necessary documents, such as police reports, medical records, invoices, or photos.</li>
+                            <li>**Complete Claim Forms:** Fill out all required claim forms accurately and completely.</li>
+                            <li>**Cooperate with Adjusters:** Work with the insurance adjuster who will assess your claim.</li>
+                            <li>**Review Settlement:** Carefully review any settlement offers before accepting.</li>
+                        </ol>
+                        <p class="mb-4">
+                            Being prepared and organized can significantly expedite your claim process. Our team is always here to assist you if you have any questions.
+                        </p>
+                    `
+                },
+                {
+                    id: 6,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+6",
+                    title: "The Future of Digital Insurance: Trends to Watch",
+                    shortDetails: "An insightful look into the evolving landscape of digital insurance and upcoming innovations.",
+                    author: "Emily White",
+                    authorImage: "https://placehold.co/50x50/C8E6C9/000000?text=EW",
+                    publishedDate: "May 28, 2024",
+                    totalVisits: 110,
+                    fullDetails: `
+                        <p class="mb-4">
+                            The insurance industry is undergoing a rapid digital transformation, driven by technological advancements and changing consumer expectations. Here are some key trends shaping the future of digital insurance:
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Emerging Trends</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**AI and Machine Learning:** Enhancing risk assessment, claims processing, and personalized customer service.</li>
+                            <li>**Blockchain Technology:** Improving transparency, security, and efficiency in transactions and record-keeping.</li>
+                            <li>**IoT and Telematics:** Enabling usage-based insurance and proactive risk management through connected devices.</li>
+                            <li>**Personalized Policies:** Leveraging data analytics to offer highly customized insurance products.</li>
+                        </ul>
+                        <p class="mb-4">
+                            These innovations promise to make insurance more accessible, efficient, and tailored to individual needs, ultimately benefiting consumers.
+                        </p>
+                    `
+                },
+                {
+                    id: 7,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+7",
+                    title: "Life Insurance for Young Professionals",
+                    shortDetails: "Why young professionals should consider life insurance early in their careers.",
+                    author: "Michael Green",
+                    authorImage: "https://placehold.co/50x50/E6E6FA/000000?text=MG",
+                    publishedDate: "May 20, 2024",
+                    totalVisits: 65,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Many young professionals might think life insurance is only for older adults with families. However, securing a policy early in your career can offer significant advantages, including lower premiums and ensuring future insurability.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Benefits for Young Professionals</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Lower Premiums:** Younger and healthier individuals typically qualify for the best rates.</li>
+                            <li>**Debt Protection:** Covers student loans, car loans, or other debts if something unexpected happens.</li>
+                            <li>**Future Insurability:** Locks in coverage before potential health issues arise.</li>
+                        </ul>
+                        <p class="mb-4">
+                            Don't wait until you have a family or major financial commitments. Proactive planning can secure your financial future and provide peace of mind.
+                        </p>
+                    `
+                },
+                {
+                    id: 8,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+8",
+                    title: "Understanding Annuities: A Retirement Income Solution",
+                    shortDetails: "Explore how annuities can provide a guaranteed income stream in retirement.",
+                    author: "Olivia White",
+                    authorImage: "https://placehold.co/50x50/F5DEB3/000000?text=OW",
+                    publishedDate: "May 15, 2024",
+                    totalVisits: 55,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Annuities are financial products offered by insurance companies that provide a steady stream of income, often used as a component of retirement planning. You typically pay a lump sum or a series of payments, and in return, receive regular payouts starting immediately or at a future date.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Types of Annuities</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Immediate Annuities:** Payouts begin soon after purchase.</li>
+                            <li>**Deferred Annuities:** Payouts begin at a future date, allowing your investment to grow over time.</li>
+                            <li>**Fixed Annuities:** Offer a guaranteed interest rate.</li>
+                            <li>**Variable Annuities:** Investment performance determines payout, with potential for higher returns but also higher risk.</li>
+                        </ul>
+                        <p class="mb-4">
+                            Annuities can be a valuable tool for ensuring you don't outlive your retirement savings, providing a predictable income stream for years to come.
+                        </p>
+                    `
+                },
+                {
+                    id: 9,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+9",
+                    title: "The Benefits of Travel Insurance for Your Next Trip",
+                    shortDetails: "Don't leave home without it! Why travel insurance is essential for peace of mind.",
+                    author: "Daniel Lee",
+                    authorImage: "https://placehold.co/50x50/ADD8E6/000000?text=DL",
+                    publishedDate: "May 10, 2024",
+                    totalVisits: 45,
+                    fullDetails: `
+                        <p class="mb-4">
+                            Travel insurance is designed to protect you from financial risks and losses that can occur while traveling. These can be minor, like delayed luggage, or significant, like unexpected medical emergencies overseas.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">What Travel Insurance Covers</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Trip Cancellation/Interruption:** Reimburses non-refundable costs if your trip is cut short or cancelled.</li>
+                            <li>**Medical Emergencies:** Covers emergency medical treatment and evacuation while abroad.</li>
+                            <li>**Lost/Delayed Baggage:** Provides compensation for lost, stolen, or delayed luggage.</li>
+                            <li>**Travel Delays:** Offers reimbursement for expenses incurred due to unexpected delays.</li>
+                        </ul>
+                        <p class="mb-4">
+                            While often overlooked, travel insurance provides crucial peace of mind, allowing you to enjoy your trip without worrying about potential financial setbacks.
+                        </p>
+                    `
+                },
+                {
+                    id: 10,
+                    image: "https://placehold.co/400x200/8BC34A/FFFFFF?text=Blog+10",
+                    title: "Home Insurance: Protecting Your Most Valuable Asset",
+                    shortDetails: "A guide to understanding home insurance and why it's indispensable for homeowners.",
+                    author: "Sophia Kim",
+                    authorImage: "https://placehold.co/50x50/B2EBF2/000000?text=SK",
+                    publishedDate: "May 1, 2024",
+                    totalVisits: 70,
+                    fullDetails: `
+                        <p class="mb-4">
+                            For most people, their home is their largest asset. Home insurance protects this valuable investment from a variety of perils, including fire, theft, natural disasters, and liability claims.
+                        </p>
+                        <h2 class="text-2xl font-semibold text-gray-900 mt-6 mb-3">Key Components of Home Insurance</h2>
+                        <ul class="list-disc list-inside mb-4 space-y-2">
+                            <li>**Dwelling Coverage:** Protects the structure of your home.</li>
+                            <li>**Personal Property Coverage:** Covers your belongings inside the home.</li>
+                            <li>**Liability Coverage:** Protects you if someone is injured on your property.</li>
+                            <li>**Additional Living Expenses:** Covers costs if you need to live elsewhere during repairs.</li>
+                        </ul>
+                        <p class="mb-4">
+                            Securing comprehensive home insurance is crucial for safeguarding your property and financial stability against unexpected events.
+                        </p>
+                    `
+                }
+            ];
+
+            // Function to fetch and render blogs
+            function fetchAndRenderBlogs(page = 1) {
+                // Simulate backend pagination
+                const startIndex = (page - 1) * blogsPerPage;
+                const endIndex = startIndex + blogsPerPage;
+                const blogsToDisplay = mockBlogs.slice(startIndex, endIndex);
+
+                blogCardsContainer.innerHTML = ''; // Clear previous blogs
+                blogsToDisplay.forEach(blog => {
+                    const cardHtml = `
+                        <div class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 rounded-lg overflow-hidden">
+                            <figure class="h-48">
+                                <img src="${ blog.image }" alt="${ blog.title }" class="w-full h-full object-cover" />
+                            </figure>
+                            <div class="card-body p-6">
+                                <h3 class="card-title text-2xl text-gray-800 mb-2">${ blog.title }</h3>
+                                <p class="text-gray-600 text-sm mb-4">${ blog.shortDetails }</p>
+                                <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
+                                    <div class="flex items-center">
+                                        <div class="avatar mr-2">
+                                            <div class="w-8 h-8 rounded-full">
+                                                <img src="${ blog.authorImage }" alt="${ blog.author } Image" />
+                                            </div>
+                                        </div>
+                                        <span>By <span class="font-semibold">${ blog.author }</span></span>
+                                    </div>
+                                    <span>${ blog.publishedDate }</span>
+                                </div>
+                                <div class="flex items-center justify-between mt-auto">
+                                    <div class="badge badge-outline badge-info">
+                                        <i class="fas fa-eye mr-1"></i> ${ blog.totalVisits } Visits
+                                    </div>
+                                    <button class="btn btn-sm btn-outline btn-secondary read-more-btn" data-blog-id="${ blog.id }">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    blogCardsContainer.insertAdjacentHTML('beforeend', cardHtml);
+                });
+
+                renderPagination(Math.ceil(mockBlogs.length / blogsPerPage), page);
+            }
+
+            // Function to render pagination buttons
+            function renderPagination(totalPages, currentPage) {
+                paginationContainer.innerHTML = '';
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = `
+                        <button class="join-item btn btn-md ${ currentPage === i ? 'btn-active' : '' }" data-page="${ i }">
+                            ${ i }
+                        </button>
+                    `;
+                    paginationContainer.insertAdjacentHTML('beforeend', button);
+                }
+            }
+
+            // Event listener for pagination clicks
+            paginationContainer.addEventListener('click', (event) => {
+                if (event.target.tagName === 'BUTTON' && event.target.dataset.page) {
+                    currentPage = parseInt(event.target.dataset.page);
+                    fetchAndRenderBlogs(currentPage);
+                }
+            });
+
+            // Event listener for "Read More" buttons
+            blogCardsContainer.addEventListener('click', (event) => {
+                const readMoreBtn = event.target.closest('.read-more-btn');
+                if (readMoreBtn) {
+                    const blogId = parseInt(readMoreBtn.dataset.blogId);
+                    const selectedBlog = mockBlogs.find(blog => blog.id === blogId);
+
+                    if (selectedBlog) {
+                        // Increment visit count (client-side simulation)
+                        selectedBlog.totalVisits++;
+                        // Re-render the current page to reflect the updated visit count
+                        fetchAndRenderBlogs(currentPage);
+
+                        // Populate modal with blog details
+                        modalBlogTitle.textContent = selectedBlog.title;
+                        modalAuthorImage.src = selectedBlog.authorImage;
+                        modalAuthorName.textContent = selectedBlog.author;
+                        modalPublishedDate.textContent = `Published on ${ selectedBlog.publishedDate }`;
+                        modalTotalVisits.textContent = selectedBlog.totalVisits;
+                        modalBlogImage.src = selectedBlog.image;
+                        modalBlogFullDetails.innerHTML = selectedBlog.fullDetails;
+
+                        // Show the modal
+                        blogDetailsModal.showModal();
+                    }
+                }
+            });
+
+            // Initial load of blogs
+            fetchAndRenderBlogs(currentPage);
+        });
+    </script>
+
+</body>
+
+</html>
