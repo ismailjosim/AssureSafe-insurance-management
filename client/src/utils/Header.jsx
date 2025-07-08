@@ -10,7 +10,11 @@ import { NavLink } from 'react-router'
 
 const Header = () => {
 	return (
-		<Navbar fluid rounded className='bg-white shadow-md'>
+		<Navbar
+			fluid
+			rounded
+			className='dark:bg-white dark:border-b-4 border-black shadow-md '
+		>
 			<NavLink
 				className='normal-case text-2xl font-bold text-blue-600 flex items-center'
 				to={'/'}
