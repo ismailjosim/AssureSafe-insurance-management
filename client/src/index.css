@@ -1,3 +1,10 @@
 @import "tailwindcss";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
+
+
+.hero-section-bg {
+    background-image: url("https://placehold.co/1200x500/ADD8E6/000000?text=Secure+Your+Tomorrow+Today");
+    background-size: cover;
+    background-position: center;
+}

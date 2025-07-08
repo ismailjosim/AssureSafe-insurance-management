@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router'
 import MainLayout from '../layouts/MainLayout'
 import AuthLayout from '../layouts/AuthLayout'
+import Home from '../Pages/Home'
 
 const routes = createBrowserRouter([
 	{
@@ -10,7 +11,7 @@ const routes = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <h3> Home page</h3>,
+				element: <Home />,
 			},
 			{
 				path: '/policies',
