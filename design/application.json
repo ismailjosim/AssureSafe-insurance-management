@@ -1,0 +1,45 @@
+[
+	{
+		"policyId": "policy123456",
+		"quoteData": {
+			"age": 30,
+			"gender": "male",
+			"coverageAmount": 2000000,
+			"duration": 20,
+			"smoker": false,
+			"estimatedPremium": 120
+		}
+	},
+	{
+		"_id": "application987654",
+		"policyId": "policy123456",
+		"policyTitle": "Term Life Plan A",
+		"quoteData": {
+			"age": 30,
+			"gender": "male",
+			"coverageAmount": 2000000,
+			"duration": 20,
+			"smoker": false,
+			"estimatedPremium": 120
+		},
+		"applicationInfo": {
+			"fullName": "Jasim Uddin",
+			"email": "jasim@example.com",
+			"address": "123 Example Street, Dhaka",
+			"nidNo": "1998123456789"
+		},
+		"nominee": {
+			"name": "Karim Uddin",
+			"relationship": "Brother"
+		},
+		"healthDisclosure": [
+			"No chronic illness",
+			"Non-smoker",
+			"No previous hospitalization"
+		],
+		"status": "Pending",
+		"assignedAgent": null,
+		"rejectionFeedback": null,
+		"createdAt": "2025-07-04T13:20:00.000Z"
+	}
+]

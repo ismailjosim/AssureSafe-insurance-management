@@ -1,11 +1,10 @@
 import { Request, Response } from 'express';
 import { UserService } from './user.service';
+import { UserModel } from './user.model';
 
 const createUser = async (req: Request, res: Response) => {
-  const user = req.body;
-  console.log('From User Controller: ', user);
+  const user = new UserModel(req.body);
   const result = await UserService.createUserToDB(user);
-  console.log('From User Controller: ', result);
   res.status(201).json({
     success: true,
     message: 'User created successfully',

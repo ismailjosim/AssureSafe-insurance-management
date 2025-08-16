@@ -1,0 +1,18 @@
+{
+	"_id": "policy123456",
+	"title": "Term Life Plan A",
+	"category": "Term Life",
+	"description": "A flexible term life insurance plan offering up to 20 lakh coverage with low premiums.",
+	"minAge": 18,
+	"maxAge": 60,
+	"coverageRange": {
+		"min": 500000,
+		"max": 2000000
+	},
+	"durationOptions": [10, 15, 20, 25, 30],
+	"basePremiumRate": 0.00006,
+	"image": "https://example.com/images/term-life-a.jpg",
+	"purchaseCount": 47,
+	"createdAt": "2025-07-01T12:00:00.000Z",
+	"updatedAt": "2025-07-04T10:45:00.000Z"
+}

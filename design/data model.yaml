@@ -1,0 +1,317 @@
+collections:
+  - name: users
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the user
+      - name: name
+        type: String
+        description: User's full name
+      - name: email
+        type: String
+        unique: true
+        description: User's email address, used for login
+      - name: password
+        type: String
+        description: Hashed password for email/password authentication
+      - name: photoUrl
+        type: String
+        description: URL to the user's profile photo
+      - name: role
+        type: String
+        enum: ['admin', 'agent', 'customer']
+        default: 'customer'
+        description: User's role on the platform (Admin, Agent, or Customer)
+      - name: lastLogin
+        type: Date
+        description: Last login timestamp (from Firebase)
+  - name: policies
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the policy
+      - name: title
+        type: String
+        description: Title of the insurance policy
+      - name: category
+        type: String
+        enum: ['Term Life', 'Senior Plan', 'etc.']
+        description: Category of the policy
+      - name: description
+        type: String
+        description: Detailed description of the policy
+      - name: minAge
+        type: Number
+        description: Minimum eligible age for the policy
+      - name: maxAge
+        type: Number
+        description: Maximum eligible age for the policy
+      - name: coverageRange
+        type: String
+        description: Range of coverage amounts offered
+      - name: durationOptions
+        type: Array
+        items:
+          type: String
+        description: Available term durations for the policy
+      - name: basePremiumRate
+        type: Number
+        description: Base rate for premium calculation
+      - name: imageUrl
+        type: String
+        description: URL to the policy image
+      - name: purchaseCount
+        type: Number
+        default: 0
+        description: Number of times this policy has been purchased
+  - name: applications
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the application
+      - name: userId
+        type: ObjectId
+        ref: users
+        description: Reference to the user who submitted the application
+      - name: policyId
+        type: ObjectId
+        ref: policies
+        description: Reference to the policy being applied for
+      - name: applicantName
+        type: String
+        description: Name of the applicant
+      - name: applicantEmail
+        type: String
+        description: Email of the applicant
+      - name: applicationDate
+        type: Date
+        description: Date when the application was submitted
+      - name: status
+        type: String
+        enum: ['Pending', 'Approved', 'Rejected']
+        default: 'Pending'
+        description: Current status of the application
+      - name: assignedAgentId
+        type: ObjectId
+        ref: users
+        description: Reference to the agent assigned to this application
+      - name: personalData
+        type: Object
+        fields:
+          - name: name
+            type: String
+          - name: email
+            type: String
+          - name: address
+            type: String
+          - name: nidNo
+            type: String
+        description: Personal details of the applicant
+      - name: nomineeData
+        type: Object
+        fields:
+          - name: name
+            type: String
+          - name: relationship
+            type: String
+        description: Nominee details
+      - name: healthDisclosure
+        type: Array
+        items:
+          type: String
+        description: Health-related disclosures
+      - name: adminFeedback
+        type: String
+        description: Feedback from admin if application is rejected
+  - name: quotes
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the quote
+      - name: userId
+        type: ObjectId
+        ref: users
+        description: Reference to the user who generated the quote
+      - name: policyId
+        type: ObjectId
+        ref: policies
+        description: Reference to the policy for which the quote was generated
+      - name: age
+        type: Number
+        description: Age of the applicant for the quote
+      - name: gender
+        type: String
+        description: Gender of the applicant for the quote
+      - name: coverageAmount
+        type: Number
+        description: Desired coverage amount
+      - name: duration
+        type: Number
+        description: Desired policy duration in years
+      - name: smokerStatus
+        type: String
+        enum: ['Smoker', 'Non-smoker']
+        description: Smoker status of the applicant
+      - name: estimatedPremium
+        type: Number
+        description: Estimated monthly/annual premium
+      - name: timestamp
+        type: Date
+        description: Date and time when the quote was generated
+  - name: reviews
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the review
+      - name: userId
+        type: ObjectId
+        ref: users
+        description: Reference to the user who submitted the review
+      - name: policyId
+        type: ObjectId
+        ref: policies
+        description: Reference to the policy being reviewed
+      - name: rating
+        type: Number
+        min: 1
+        max: 5
+        description: Star rating (1-5)
+      - name: message
+        type: String
+        description: Text feedback from the user
+      - name: userName
+        type: String
+        description: Name of the user who submitted the review
+      - name: userImage
+        type: String
+        description: URL to the user's image
+      - name: timestamp
+        type: Date
+        description: Date and time when the review was submitted
+  - name: transactions
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the transaction
+      - name: userId
+        type: ObjectId
+        ref: users
+        description: Reference to the user who made the payment
+      - name: policyId
+        type: ObjectId
+        ref: policies
+        description: Reference to the policy for which payment was made
+      - name: transactionId
+        type: String
+        description: Stripe transaction ID
+      - name: customerEmail
+        type: String
+        description: Email of the customer
+      - name: policyName
+        type: String
+        description: Name of the policy purchased
+      - name: paidAmount
+        type: Number
+        description: Amount paid in the transaction
+      - name: date
+        type: Date
+        description: Date of the transaction
+      - name: status
+        type: String
+        enum: ['Success', 'Failed']
+        description: Status of the payment transaction
+  - name: blogs
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the blog post
+      - name: title
+        type: String
+        description: Title of the blog post
+      - name: content
+        type: String
+        description: Full content of the blog post
+      - name: authorId
+        type: ObjectId
+        ref: users
+        description: Reference to the author of the blog post (Admin or Agent)
+      - name: authorName
+        type: String
+        description: Name of the author
+      - name: publishedDate
+        type: Date
+        description: Date when the blog was published
+      - name: totalVisits
+        type: Number
+        default: 0
+        description: Number of times the blog post has been viewed
+      - name: image
+        type: String
+        description: URL to the blog post image
+      - name: summary
+        type: String
+        description: Short summary of the blog post
+  - name: newsletterSubscriptions
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the subscription
+      - name: name
+        type: String
+        description: Name of the subscriber
+      - name: email
+        type: String
+        unique: true
+        description: Email of the subscriber
+      - name: subscriptionDate
+        type: Date
+        description: Date when the user subscribed
+  - name: agents
+    fields:
+      - name: _id
+        type: ObjectId
+        ref: users
+        description: Reference to the user document with role 'agent'
+      - name: experience
+        type: String
+        description: Agent's years of experience
+      - name: specialties
+        type: Array
+        items:
+          type: String
+        description: Agent's areas of specialization
+      - name: photo
+        type: String
+        description: URL to the agent's photo
+  - name: claims
+    fields:
+      - name: _id
+        type: ObjectId
+        description: Unique identifier for the claim request
+      - name: userId
+        type: ObjectId
+        ref: users
+        description: Reference to the user who submitted the claim
+      - name: policyId
+        type: ObjectId
+        ref: policies
+        description: Reference to the policy being claimed
+      - name: policyName
+        type: String
+        description: Name of the policy
+      - name: reasonForClaim
+        type: String
+        description: Reason provided by the user for the claim
+      - name: documentUploads
+        type: Array
+        items:
+          type: String
+        description: URLs to uploaded documents (PDF/image)
+      - name: status
+        type: String
+        enum: ['Pending', 'Approved', 'Rejected']
+        default: 'Pending'
+        description: Status of the claim request
+      - name: claimDate
+        type: Date
+        description: Date when the claim was submitted

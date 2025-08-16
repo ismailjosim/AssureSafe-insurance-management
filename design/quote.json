@@ -1,0 +1,7 @@
+{
+	"age": 30,
+	"gender": "male",
+	"coverageAmount": 2000000,
+	"duration": 20,
+	"smoker": false
+}
